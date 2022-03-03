@@ -1,17 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+//import {App} from './App';
+
+import "./index.css";
+
+const Message = (props) => {
+  console.log("props", props);
+  return (
+    <div className="container">
+      <h1>
+        <p className="wellcome">{props.hello}</p> {props.content}
+      </h1>
+    </div>
+  );
+};
+
+const FunctionComponent = ({wellcome}) => {
+  return (
+    <div>
+      <Message hello={wellcome} content="FunctionComponent"/>
+    </div>
+  );
+};
+
+const CopyrightComponent = () => {
+  return (
+    <div>
+      <p>
+        &copy; 2022 <b>Все права защищены</b>
+      </p>
+    </div>
+  );
+};
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <FunctionComponent wellcome="Hello from" />
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <CopyrightComponent />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
