@@ -1,27 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom";
-//import {App} from './App';
-
 import "./index.css";
 
-const Message = (props) => {
-  console.log("props", props);
-  return (
-    <div className="container">
-      <h1>
-        <p className="wellcome">{props.hello}</p> {props.content}
-      </h1>
-    </div>
-  );
-};
+class ClassComponent extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      messageList: []
+    }
+  }
 
-const FunctionComponent = ({wellcome}) => {
-  return (
-    <div>
-      <Message hello={wellcome} content="FunctionComponent"/>
-    </div>
-  );
-};
+  addmessage = () => {
+    this.setState({
+      messageList: [...this.state.messageList, "newmessage"]
+    })
+  }
+
+  removemessage = (id) => {
+    this.setState({
+      films: this.state.films.filter(msg => msg !== id)
+    })
+  }
+
+  render() {
+    const {messageList} = this.state
+    console.log("this.state", this.state);
+    return (
+      <div>
+        <h1>ClassComponent</h1>
+        <hr />
+
+        <button onClick = {() => this.addmessage}>add</button>
+        {messageList.map(msg => (
+          <div>
+            <h3>{messageList}</h3>
+            <button onClick = {() => this.removemessage(msg)}>remove</button>
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
 
 const CopyrightComponent = () => {
   return (
@@ -33,12 +52,18 @@ const CopyrightComponent = () => {
   );
 };
 
+const App = () => {
+  return (
+    <>
+      <ClassComponent />
+      <CopyrightComponent />
+    </>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <FunctionComponent wellcome="Hello from" />
-
-    <CopyrightComponent />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
