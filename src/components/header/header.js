@@ -49,9 +49,11 @@ export function Header() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <button onClick={() => themeSetter("light")}>light</button>
-            <button onClick={() => themeSetter("dark")}>dark</button>
-            <span style={{ color: theme.theme.color }}>{theme.name}</span>
+            {
+            //<button onClick={() => themeSetter("light")}>light</button>
+            //<button onClick={() => themeSetter("dark")}>dark</button>
+            //<span style={{ color: theme.theme.color }}>{theme.name}</span>
+            }
             <IconButton sx={{ p: 0 }}>
               <Avatar />
             </IconButton>
