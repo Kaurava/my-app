@@ -3,7 +3,7 @@ import { toggleVisibleProfile } from "../store/profile";
 import { ProfileForm } from "../components";
 
 export const ProfilePage = () => {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const { firstName, lastName, isVisibleProfile, phone  } = useSelector(
     (state) => state.profile
   );
