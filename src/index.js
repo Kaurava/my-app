@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components";
 import { ProfilePage, ChatPage } from "./pages";
 import { CustomThemeProvider } from "./theme-context";
-import { store } from "./store";
+import { store, persistor } from "./store";
 
 import "./global.css";
 
