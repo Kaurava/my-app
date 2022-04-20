@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { List, Button } from "@mui/material";
 import { Chat } from "./chat";
 import {
-  createConversation,
+  createConversationFB,
   deleteConversation,
   conversationsSelector,
 } from "../../store/conversations";
@@ -13,14 +13,14 @@ export function ChatList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const conversations = useSelector(conversationsSelector);
+  const { conversations, pending } = useSelector(conversationsSelector);
 
   const create = () => {
     const name = prompt("Введите название комнаты");
     const isValidName = !conversations.includes(name);
 
     if (!!name && isValidName) {
-      dispatch(createConversation(name));
+      dispatch(createConversationFB(name));
     } else {
       alert("Не правильное название");
     }
@@ -31,6 +31,10 @@ export function ChatList() {
     navigate("/chat");
   };
 
+  // @TODO сделат верстку
+  if (pending) {
+    return <h1>pending ...</h1>;
+  }
   return (
     <List component="nav">
       <Button color="info" onClick={create}>

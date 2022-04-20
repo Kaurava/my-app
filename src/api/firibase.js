@@ -2,8 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
-import { createConversationApi } from "./conversations";
-import { createMessageApi } from "./messages";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -35,10 +33,10 @@ export const database = getDatabase(firibase);
 //   console.log("end")
 // }, 2000)
 
-setTimeout(() => {
-  createMessageApi({id: 1, author: "User", data: new Date().getTime(), message: "Привет"}, "room5");
-  createMessageApi({id: 1, author: "User", data: new Date().getTime(), message: "Большой Привет"}, "room5");
-  createMessageApi({id: 1, author: "User", data: new Date().getTime(), message: "Привет"}, "room6");
-  createMessageApi({id: 1, author: "User", data: new Date().getTime(), message: "Привет"}, "room7");  console.log("end")
-}, 2000)
+// setTimeout(() => {
+//   createMessageApi({id: 1, author: "User", data: new Date().getTime(), message: "Привет"}, "room5");
+//   createMessageApi({id: 1, author: "User", data: new Date().getTime(), message: "Большой Привет"}, "room5");
+//   createMessageApi({id: 1, author: "User", data: new Date().getTime(), message: "Привет"}, "room6");
+//   createMessageApi({id: 1, author: "User", data: new Date().getTime(), message: "Привет"}, "room7");  console.log("end")
+// }, 2000)
 
